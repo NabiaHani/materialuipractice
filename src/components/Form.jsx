@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 // import { Password } from '@mui/icons-material'
 
 const Form = () => {
@@ -35,6 +35,20 @@ const Form = () => {
                 <TextField name='email' type='email' label='email' variant='outlined' placeholder='Enter your email' value={inputs.email || ''} onChange={handleChange} sx={{ margin: "20px" }} required />
 
                 <TextField name='password' type='password' label='password' variant='outlined' placeholder='Enter your password' value={inputs.password || ''} onChange={handleChange} sx={{ margin: "20px" }} required />
+                <br />
+
+                {/* in material ui we call select not dropdown */}
+                <FormControl sx={{width:"150px"}}>
+                    <InputLabel id='menu'>Courses
+                    </InputLabel>
+                        <Select labelId='menu' id='menu-list' label='courses' value={inputs.courses} onChange={handleChange}>
+
+                            <MenuItem value='{mongoDB}'>MongoDB</MenuItem>
+                            <MenuItem value='{Express}'>Express</MenuItem>
+                            <MenuItem value='{React}'>React</MenuItem>
+                            <MenuItem value='{Nodejs}'>Nodejs</MenuItem>
+                        </Select>
+                </FormControl>
                 <br />
                 <Button type='submit'>Submit</Button>
             </form>
