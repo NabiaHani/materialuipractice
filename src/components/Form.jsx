@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 // import { Password } from '@mui/icons-material'
 
 const Form = () => {
     const [inputs, setInputs] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        terms: false,
+        courses: ''
     })
 
     // handling change
@@ -37,17 +39,35 @@ const Form = () => {
                 <TextField name='password' type='password' label='password' variant='outlined' placeholder='Enter your password' value={inputs.password || ''} onChange={handleChange} sx={{ margin: "20px" }} required />
                 <br />
 
+
+                {/* checkbox */}
+                <FormGroup sx={{ margin: "20px" }}>
+                    <FormControlLabel label="I Agree With T&C" control={<Checkbox defaultChecked />} />
+                </FormGroup>
+
+
+                <FormGroup sx={{ margin: "20px" }}>
+                    <FormControlLabel
+                        label="I Agree T&C"
+                        control={
+                            <Checkbox
+                                onChange={() =>
+                                    setInputs((prevState) => ({
+                                        ...prevState,
+                                        terms: !inputs.terms, }))} />} />
+                </FormGroup>
+
                 {/* in material ui we call select not dropdown */}
-                <FormControl sx={{width:"150px"}}>
+                <FormControl sx={{ width: "150px", margin:"20px" }}>
                     <InputLabel id='menu'>Courses
                     </InputLabel>
-                        <Select labelId='menu' id='menu-list' label='courses' value={inputs.courses} onChange={handleChange}>
+                    <Select labelId='menu' id='menu-list' label='courses' value={inputs.courses} onChange={handleChange} name='courses'>
 
-                            <MenuItem value='{mongoDB}'>MongoDB</MenuItem>
-                            <MenuItem value='{Express}'>Express</MenuItem>
-                            <MenuItem value='{React}'>React</MenuItem>
-                            <MenuItem value='{Nodejs}'>Nodejs</MenuItem>
-                        </Select>
+                        <MenuItem value="mongoDB">MongoDB</MenuItem>
+                        <MenuItem value="Express">Express</MenuItem>
+                        <MenuItem value="React">React</MenuItem>
+                        <MenuItem value="Nodejs">Nodejs</MenuItem>
+                    </Select>
                 </FormControl>
                 <br />
                 <Button type='submit'>Submit</Button>
