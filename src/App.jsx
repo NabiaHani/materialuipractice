@@ -1,5 +1,5 @@
 import { Typography, Button } from '@mui/material'
-// import './App.css'
+import './App.css'
 
 function App() {
 
