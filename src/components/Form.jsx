@@ -70,7 +70,7 @@ const Form = () => {
                     </Select>
                 </FormControl>
                 <br />
-                <Button type='submit'>Submit</Button>
+                <Button type='submit' sx={{margin:"20px"}}>Submit</Button>
             </form>
         </>
     )
