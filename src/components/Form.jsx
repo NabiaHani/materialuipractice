@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, FormControl, InputLabel, MenuItem, Select, TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField, FormGroup, FormControlLabel, Checkbox, FormLabel, RadioGroup, Radio } from '@mui/material'
 // import { Password } from '@mui/icons-material'
 
 const Form = () => {
@@ -8,7 +8,8 @@ const Form = () => {
         email: '',
         password: '',
         terms: false,
-        courses: ''
+        courses: '',
+        gender: ''
     })
 
     // handling change
@@ -54,11 +55,12 @@ const Form = () => {
                                 onChange={() =>
                                     setInputs((prevState) => ({
                                         ...prevState,
-                                        terms: !inputs.terms, }))} />} />
+                                        terms: !inputs.terms,
+                                    }))} />} />
                 </FormGroup>
 
                 {/* in material ui we call select not dropdown */}
-                <FormControl sx={{ width: "150px", margin:"20px" }}>
+                <FormControl sx={{ width: "150px", margin: "20px" }}>
                     <InputLabel id='menu'>Courses
                     </InputLabel>
                     <Select labelId='menu' id='menu-list' label='courses' value={inputs.courses} onChange={handleChange} name='courses'>
@@ -70,7 +72,21 @@ const Form = () => {
                     </Select>
                 </FormControl>
                 <br />
-                <Button type='submit' sx={{margin:"20px"}}>Submit</Button>
+
+                {/* radio button */}
+                <FormControl>
+                    <FormLabel>Gender:</FormLabel>
+                    <RadioGroup
+                        defaultValue={"female"}
+                        name="gender" onChange={handleChange}>
+                        <FormControlLabel value={'female'} label='female' control={<Radio />}></FormControlLabel>
+                        <FormControlLabel value={'male'} label='male' control={<Radio />}></FormControlLabel>
+                        <FormControlLabel value={'other'} label='other' control={<Radio />}></FormControlLabel>
+                    </RadioGroup>
+                </FormControl>
+
+                <br />
+                <Button type='submit' sx={{ margin: "20px" }}>Submit</Button>
             </form>
         </>
     )

@@ -1,11 +1,16 @@
 import { Typography} from '@mui/material'
 // import './App.css'
 import Form from './components/Form'
+// import Navbar from './components/Navbar'
+import Appbar from './components/Appbar'
 
 function App() {
 
   return (
     <>
+    {/* <Navbar/> */}
+    <Appbar/>
+
       <Typography variant='h4' component={"h2"} sx={{ color: "red" }}>
         nabia hani software engineer, frontend developer
       </Typography>
