@@ -1,23 +1,34 @@
-import { Typography} from '@mui/material'
+// import { Typography } from '@mui/material'
 // import './App.css'
-import Form from './components/Form'
+// import Form from './components/Form'
 // import Navbar from './components/Navbar'
 import Appbar from './components/Appbar'
+import Cards from './components/Cards'
+import Containers from './components/Containers'
+import Lists from './components/Lists'
+import Modals from './components/Modals'
 
 function App() {
 
   return (
     <>
-    {/* <Navbar/> */}
-    <Appbar/>
+      {/* <Navbar/> */}
+      <Appbar />
 
-      <Typography variant='h4' component={"h2"} sx={{ color: "red" }}>
+      <div style={{ marginTop: 100 }}>
+        <Cards />
+        <Modals />
+        <Containers/>
+        <Lists/> 
+      </div>
+
+      {/* <Typography variant='h4' component={"h2"} sx={{ color: "red" }}>
         nabia hani software engineer, frontend developer
       </Typography>
       <h1>Material UI</h1>
-      <p>nabia hani</p>
+      <p>nabia hani</p> */}
 
-      <Form />
+      {/* <Form /> */}
       {/* <Button variant='contained' size="small"
         color='success' sx={{ mt: "30px" }}>Click Me</Button>
       <Button variant='text' color='secondary'>Click Me</Button>
